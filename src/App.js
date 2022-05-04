@@ -35,8 +35,8 @@ function App(props) {
           </label>
         </div>
         <div className="form-check form-check-inline">
-          <input className="form-check-input" checked type="radio" name="statusRadio" id="statusRadio2" />
-          <label className="form-check-label" for="statusRadio2">
+          <input className="form-check-input" type="radio" name="statusRadio" id="statusRadio3" />
+          <label className="form-check-label" for="statusRadio3">
             All
           </label>
         </div>
