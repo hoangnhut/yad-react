@@ -14,7 +14,7 @@ const CreateStudentForm = (props) => {
   }
 
   return (
-    <form className='row g-3'>
+    <form className='row g-3' onSubmit={handleSubmit}>
       <div className="col-9">
         <input
           type="text"
@@ -26,7 +26,7 @@ const CreateStudentForm = (props) => {
         />
       </div>
       <div className="col-3">
-        <button type="submit" className="btn btn-primary mb-3 w-100" onClick={handleSubmit}>Add</button>
+        <button type="submit" className="btn btn-primary mb-3 w-100">Add</button>
       </div>
     </form>
   )
