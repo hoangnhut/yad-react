@@ -1,7 +1,16 @@
+import { useState } from "react";
+
 export default function CreateStudentForm(props) {
+  const [name, setName] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addStudent('from CreateStudentForm')
+    props.addStudent(name)
+    setName('');
+  }
+
+  const handleChange = (e) => {
+    setName(e.target.value);
   }
 
   return (
@@ -12,6 +21,8 @@ export default function CreateStudentForm(props) {
           className="form-control"
           name="text"
           autoComplete="off"
+          value={name}
+          onChange={handleChange}
         />
       </div>
       <div className="col-3">

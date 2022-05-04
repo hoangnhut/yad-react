@@ -1,10 +1,12 @@
+import { useState } from "react";
+
 import './App.css';
 import Student from './components/Student'
 import CreateStudentForm from './components/CreateStudentForm';
 import FilterStudent from './components/FilterStudent';
 
 function App(props) {
-  let students = [
+  let predefinedStudents = [
     { id: 1, name: 'Alice', status: 'studying' },
     { id: 2, name: 'Bob', status: 'studying' },
     { id: 3, name: 'Charlie', status: 'graduated' },
@@ -12,13 +14,14 @@ function App(props) {
     { id: 5, name: 'Eva', status: 'studying' },
   ]
 
+  const [students, setStudents] = useState(predefinedStudents)
   const studentElements = students.map(s => (
     <Student key={s.id} name={s.name} status={s.status} />
   ))
 
-  const addStudent = (student) => {
-    students.push(student)
-    console.log(students)
+  const addStudent = (studentName) => {
+    const newStudent = { id: new Date().getTime(), name: studentName, status: 'studying' }
+    setStudents([...students, newStudent])
   }
 
   return (
