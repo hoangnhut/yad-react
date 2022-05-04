@@ -60,14 +60,14 @@ function App(props) {
             <button type="submit" className="btn btn-danger">Delete</button>
           </div>
         </div>
-        <Student />
+        <Student name='Bob' />
         <div className='row g-1 mb-3'>
           <div className="col-auto">
-            Bob <span className='fst-italic'>(Graduated)</span>
+            Charlie <span className='fst-italic'>(Graduated)</span>
           </div>
         </div>
-        <Student />
-        <Student />
+        <Student name='Dave' />
+        <Student name='Eva' />
       </div>
 
 
