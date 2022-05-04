@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CreateStudentForm(props) {
+const CreateStudentForm = (props) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
@@ -31,3 +31,5 @@ export default function CreateStudentForm(props) {
     </form>
   )
 }
+
+export default CreateStudentForm

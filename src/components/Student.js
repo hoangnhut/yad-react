@@ -1,7 +1,19 @@
 import { useState } from "react";
 
-export default function Student(props) {
+const Student = (props) => {
   const [isEditing, setEditing] = useState(false);
+  const [newName, setNewName] = useState(props.name);
+
+  const handleChange = (e) => {
+    setNewName(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.editStudent(props.id, newName);
+    setNewName("");
+    setEditing(false);
+  }
 
   const editingTemplate = (<>
     <div className="col-auto">
@@ -10,13 +22,15 @@ export default function Student(props) {
         className="form-control"
         name="text"
         autoComplete="off"
+        value={newName}
+        onChange={handleChange}
       />
     </div>
     <div className="col-auto">
-      <button type="submit" className="btn btn-primary">Save</button>
+      <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Save</button>
     </div>
     <div className="col-auto">
-      <button type="submit" className="btn btn-danger" onClick={() => setEditing(false)}>Cancel</button>
+      <button type="submit" className="btn btn-light" onClick={() => setEditing(false)}>Cancel</button>
     </div>
   </>)
 
@@ -29,3 +43,5 @@ export default function Student(props) {
 
   return <div className='row g-1 mb-3'>{isEditing ? editingTemplate : viewTemplate}</div>
 }
+
+export default Student;

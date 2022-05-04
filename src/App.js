@@ -5,7 +5,7 @@ import Student from './components/Student'
 import CreateStudentForm from './components/CreateStudentForm';
 import FilterStudent from './components/FilterStudent';
 
-function App(props) {
+const App = (props) => {
   let predefinedStudents = [
     { id: 1, name: 'Alice', status: 'studying' },
     { id: 2, name: 'Bob', status: 'studying' },
@@ -14,17 +14,13 @@ function App(props) {
     { id: 5, name: 'Eva', status: 'studying' },
   ]
 
-  const [students, setStudents] = useState(predefinedStudents)
-  const studentElements = students.map(s => (
-    <Student key={s.id} name={s.name} status={s.status} editStudent={editStudent} />
-  ))
-
   const addStudent = (studentName) => {
     const newStudent = { id: new Date().getTime(), name: studentName, status: 'studying' }
     setStudents([...students, newStudent])
   }
 
-  function editStudent(id, newName) {
+  const editStudent = (id, newName) => {
+    console.log(newName)
     const editedStudentsList = students.map(student => {
       // if this student has the same ID as the edited student
       if (id === student.id) {
@@ -33,8 +29,15 @@ function App(props) {
       }
       return student;
     });
+    console.log(editedStudentsList)
     setStudents(editedStudentsList);
   }
+
+  const [students, setStudents] = useState(predefinedStudents)
+  const studentElements = students.map(s => (
+    <Student key={s.id} id={s.id} name={s.name} status={s.status} editStudent={editStudent} />
+  ))
+
 
   return (
     <div className='container'>

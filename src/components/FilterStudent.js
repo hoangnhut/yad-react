@@ -1,4 +1,4 @@
-export default function FilterStudent(props) {
+const FilterStudent = (props) => {
   return (
     <div>
       <div className="form-check form-check-inline">
@@ -22,3 +22,5 @@ export default function FilterStudent(props) {
     </div>
   )
 }
+
+export default FilterStudent
