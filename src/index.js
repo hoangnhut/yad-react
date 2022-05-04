@@ -6,10 +6,10 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div class="container">
-      <div class="row justify-content-md-center">
+    <div className="container">
+      <div className="row justify-content-md-center">
 
-        <div class="col-auto">
+        <div className="col-auto">
           <App />
         </div>
       </div>

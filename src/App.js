@@ -4,7 +4,7 @@ import CreateStudentForm from './components/CreateStudentForm';
 import FilterStudent from './components/FilterStudent';
 
 function App(props) {
-  const students = [
+  let students = [
     { id: 1, name: 'Alice', status: 'studying' },
     { id: 2, name: 'Bob', status: 'studying' },
     { id: 3, name: 'Charlie', status: 'graduated' },
@@ -13,16 +13,18 @@ function App(props) {
   ]
 
   const studentElements = students.map(s => (
-    <Student name={s.name} status={s.status} />
+    <Student key={s.id} name={s.name} status={s.status} />
   ))
+
+  const addStudent = (student) => {
+    students.push(student)
+    console.log(students)
+  }
 
   return (
     <div className='container'>
       <h1>YAD Students</h1>
-
-      {/* g-3 is gutters https://getbootstrap.com/docs/5.0/forms/layout/#gutters */}
-      <CreateStudentForm />
-
+      <CreateStudentForm addStudent={addStudent} />
       <FilterStudent />
 
       <div className='container g-0'>
@@ -33,7 +35,6 @@ function App(props) {
               className="form-control"
               name="text"
               autoComplete="off"
-              value='Alice'
             />
           </div>
           <div className="col-auto">

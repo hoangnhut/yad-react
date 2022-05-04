@@ -1,7 +1,7 @@
 export default function CreateStudentForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Hello, world!');
+    props.addStudent('from CreateStudentForm')
   }
 
   return (
