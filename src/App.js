@@ -16,12 +16,24 @@ function App(props) {
 
   const [students, setStudents] = useState(predefinedStudents)
   const studentElements = students.map(s => (
-    <Student key={s.id} name={s.name} status={s.status} />
+    <Student key={s.id} name={s.name} status={s.status} editStudent={editStudent} />
   ))
 
   const addStudent = (studentName) => {
     const newStudent = { id: new Date().getTime(), name: studentName, status: 'studying' }
     setStudents([...students, newStudent])
+  }
+
+  function editStudent(id, newName) {
+    const editedStudentsList = students.map(student => {
+      // if this student has the same ID as the edited student
+      if (id === student.id) {
+        //
+        return { ...student, name: newName }
+      }
+      return student;
+    });
+    setStudents(editedStudentsList);
   }
 
   return (
@@ -31,22 +43,6 @@ function App(props) {
       <FilterStudent />
 
       <div className='container g-0'>
-        <div className='row g-1 mb-3'>
-          <div className="col-auto">
-            <input
-              type="text"
-              className="form-control"
-              name="text"
-              autoComplete="off"
-            />
-          </div>
-          <div className="col-auto">
-            <button type="submit" className="btn btn-primary">Edit</button>
-          </div>
-          <div className="col-auto">
-            <button type="submit" className="btn btn-danger">Delete</button>
-          </div>
-        </div>
         {studentElements}
       </div>
 
