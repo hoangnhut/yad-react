@@ -1,4 +1,9 @@
 export default function CreateStudentForm(props) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Hello, world!');
+  }
+
   return (
     <form className='row g-3'>
       <div className="col-9">
@@ -10,7 +15,7 @@ export default function CreateStudentForm(props) {
         />
       </div>
       <div className="col-3">
-        <button type="submit" className="btn btn-primary mb-3 w-100">Add</button>
+        <button type="submit" className="btn btn-primary mb-3 w-100" onClick={handleSubmit}>Add</button>
       </div>
     </form>
   )
