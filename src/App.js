@@ -2,6 +2,18 @@ import './App.css';
 import Student from './components/Student'
 
 function App(props) {
+  const students = [
+    { id: 1, name: 'Alice', status: 'studying' },
+    { id: 2, name: 'Bob', status: 'studying' },
+    { id: 3, name: 'Charlie', status: 'graduated' },
+    { id: 4, name: 'Dave', status: 'studying' },
+    { id: 5, name: 'Eva', status: 'studying' },
+  ]
+
+  const studentElements = students.map(s => (
+    <Student name={s.name} status={s.status} />
+  ))
+
   return (
     <div className='container'>
       <h1>YAD Students</h1>
@@ -41,7 +53,7 @@ function App(props) {
           </label>
         </div>
       </div>
-      
+
       <div className='container g-0'>
         <div className='row g-1 mb-3'>
           <div className="col-auto">
@@ -60,10 +72,7 @@ function App(props) {
             <button type="submit" className="btn btn-danger">Delete</button>
           </div>
         </div>
-        <Student name='Bob' />
-        <Student name='Charlie' status='graduated' />
-        <Student name='Dave' />
-        <Student name='Eva' />
+        {studentElements}
       </div>
 
 
