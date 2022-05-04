@@ -61,11 +61,7 @@ function App(props) {
           </div>
         </div>
         <Student name='Bob' />
-        <div className='row g-1 mb-3'>
-          <div className="col-auto">
-            Charlie <span className='fst-italic'>(Graduated)</span>
-          </div>
-        </div>
+        <Student name='Charlie' status='graduated' />
         <Student name='Dave' />
         <Student name='Eva' />
       </div>
