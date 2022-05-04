@@ -52,7 +52,7 @@ function App(props) {
 
 
       <b className='mt-3'>
-        3 students studying
+        {students.length} students studying
       </b>
     </div>
   );
