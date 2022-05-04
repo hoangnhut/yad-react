@@ -1,4 +1,5 @@
 import './App.css';
+import Student from './components/Student'
 
 function App(props) {
   return (
@@ -59,26 +60,14 @@ function App(props) {
             <button type="submit" className="btn btn-danger">Delete</button>
           </div>
         </div>
-        <div className='row g-1 mb-3'>
-          <div className="col-auto">
-            Bob
-          </div>
-        </div>
+        <Student />
         <div className='row g-1 mb-3'>
           <div className="col-auto">
             Bob <span className='fst-italic'>(Graduated)</span>
           </div>
         </div>
-        <div className='row g-1 mb-3'>
-          <div className="col-auto">
-            Charlie
-          </div>
-        </div>
-        <div className='row g-1 mb-3'>
-          <div className="col-auto">
-            Dave
-          </div>
-        </div>
+        <Student />
+        <Student />
       </div>
 
 
